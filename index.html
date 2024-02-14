@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heartbeat</title>
+    
+
+</head>
+
+<style>
+
+  
+    body{
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #0b1522;
+    }
+    .contenido{
+      position: fixed;
+      margin-bottom: 50px;
+      text-align: center;
+    }
+    h1{color: white;}
+    h2{color: white;}
+    .heart{
+        height: 150px;
+        width: 150px;
+        background-color: purple;
+        position: relative;
+        transform: rotate(45deg);
+        box-shadow: -20px 20px 150px #0520bc;
+        animation: palpitar 0.5s linear infinite alternate;
+    }
+    @keyframes palpitar{
+        0%{transform: rotate(45deg) scale(1.10);}
+        80%{transform: rotate(45deg) scale(1.10);}
+        100%{transform: rotate(45deg) scale(0.8);}
+    }
+
+    .heart::before{
+        content: "";
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        background: purple;
+        right: 50%;
+        border-radius: 50%;
+        box-shadow: 20px 20px 150px purple;
+    }
+
+    .heart::after{
+        content: "";
+        position: absolute;
+        height: 150px;
+        width: 150px;
+        background: purple;
+        top: -50%;
+        border-radius: 50%;
+        box-shadow: 20px 20px 150px purple;
+    }
+
+    
+
+    .firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #2154d4;
+    border-radius: 50%;
+    animation: explode 1s infinite;
+  }
+
+  @keyframes explode {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(25);
+      opacity: 0;
+    }
+  }
+
+ 
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      createFireworks();
+    });
+  
+    function createFireworks() {
+      setInterval(function() {
+        createFirework();
+      }, 300);
+    }
+  
+    function createFirework() {
+      const firework = document.createElement("div");
+      firework.className = "firework";
+      firework.style.left = Math.random() * window.innerWidth + "px";
+      firework.style.top = Math.random() * window.innerHeight + "px";
+      document.body.appendChild(firework);
+  
+      setTimeout(function() {
+        firework.remove();
+      }, 1000);
+    }
+  </script>
+
+<body>
+    <div class="heart"></div>
+    <div class="heart2"></div>
+    <div class="heart3"></div>
+    <div class="heart4"></div>
+    <div class="heart5"></div>
+    <div class="heart6"></div>
+    <div class="heart7"></div>
+    <div class="heart8"></div>
+    <div class="contenido"><h1>HAPPY DAY</h1><h2>se muy feliz</h2></div>
+    
+
+</body>
+</html>
+
+
+
